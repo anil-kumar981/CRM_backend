@@ -1,4 +1,4 @@
-﻿using CRM_backend.Models;
+﻿using CRM_backend.Models.Employee;
 using CRM_backend.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

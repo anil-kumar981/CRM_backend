@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace CRM_backend.Models
+namespace CRM_backend.Models.Employee
 {
     public class UserTechnologies
     {

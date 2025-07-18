@@ -1,27 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
-namespace CRM_backend.Models
+namespace CRM_backend.DTO.EmployeeDtos
 {
-    public class Employee
-
+    public class EmployeeDto
     {
-       [Key]
-        public int Id { get; set; }
-        // Basic Info
-        [Required]
+        [Required(ErrorMessage = "Full name is required.")]
         public string FullName { get; set; }
 
-        [Required]
-        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
-    ErrorMessage = "Invalid email address format.")]
+        [Required(ErrorMessage = "Email ID is required.")]
+        [EmailAddress(ErrorMessage = "Invalid email address format.")]
         public string EmailId { get; set; }
-
 
         public string Title { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime JoiningDate { get; set; } = DateTime.Now;
+        public DateTime? JoiningDate { get; set; }
 
         public string Type { get; set; }
 
@@ -75,7 +68,7 @@ namespace CRM_backend.Models
         public string PANNumber { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime DOB { get; set; }
+        public DateTime? DOB { get; set; }
 
         // Address
         public string Street { get; set; }
@@ -97,8 +90,5 @@ namespace CRM_backend.Models
 
         [Phone(ErrorMessage = "Invalid emergency contact phone number.")]
         public string EmergencyContactPhoneNo { get; set; }
-
-        [JsonIgnore]
-        public ICollection<UserTechnologies> UserTechnologies { get; set; } = new List<UserTechnologies>();
     }
 }

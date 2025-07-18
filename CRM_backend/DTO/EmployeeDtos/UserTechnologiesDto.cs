@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CRM_backend.DTO
+namespace CRM_backend.DTO.EmployeeDtos
 {
     public class UserTechnologiesDto
     {

@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CRM_backend.Models.Project;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace CRM_backend.Models
+namespace CRM_backend.Models.Employee
 {
     public class Technologies
     {
@@ -12,5 +13,7 @@ namespace CRM_backend.Models
         public string Name { get; set; }
         [JsonIgnore]
         public ICollection<UserTechnologies> UserTechnologies { get; set; }
+        [JsonIgnore]
+        public ICollection<ProjectTechnology> ProjectTechnologies { get; set; }
     }
 }

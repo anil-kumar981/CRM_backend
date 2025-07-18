@@ -1,5 +1,5 @@
-﻿using CRM_backend.DTO;
-using CRM_backend.Models;
+﻿using CRM_backend.DTO.EmployeeDtos;
+using CRM_backend.Models.Employee;
 using CRM_backend.Repositories;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
@@ -130,7 +130,7 @@ namespace CRM_backend.Controllers
         [ProducesResponseType(500)]
         public async Task<IActionResult> DeleteEmployee([FromRoute][Range(1, int.MaxValue)] int id)
         {
-            
+
             try
             {
                 var existing = await _employeeRepo.GetByIdAsync(e => e.Id == id);
@@ -139,6 +139,31 @@ namespace CRM_backend.Controllers
 
                 await _employeeRepo.DeleteAsync(id);
                 return Ok("Employee deleted successfully.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+        /// <summary>
+        /// Get Employees by Name
+        /// </summary>
+        [HttpGet("getbyname/{name}")]
+        [ProducesResponseType(typeof(IEnumerable<Employee>), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetEmployeesByName([FromRoute] string name)
+        {
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+            if (string.IsNullOrWhiteSpace(name))
+                return BadRequest("Name cannot be empty.");
+            try
+            {
+                var employees = await _employeeRepo.SearchByName(name);
+                if (employees == null)
+                    return NotFound($"No employees found with name {name}.");
+                return Ok(employees);
             }
             catch (Exception ex)
             {

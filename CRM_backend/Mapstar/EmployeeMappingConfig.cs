@@ -1,5 +1,5 @@
-﻿using CRM_backend.DTO;
-using CRM_backend.Models;
+﻿using CRM_backend.DTO.EmployeeDtos;
+using CRM_backend.Models.Employee;
 using Mapster;
 
 namespace CRM_backend.Mapstar

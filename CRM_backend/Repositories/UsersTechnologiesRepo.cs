@@ -1,6 +1,6 @@
 ﻿using CRM_backend.DB;
-using CRM_backend.DTO;
-using CRM_backend.Models;
+using CRM_backend.DTO.EmployeeDtos;
+using CRM_backend.Models.Employee;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
