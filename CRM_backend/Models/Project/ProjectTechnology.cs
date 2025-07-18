@@ -10,13 +10,16 @@ namespace CRM_backend.Models.Project
       
         [JsonIgnore]
         public int Id { get; set; }
-        [Required(ErrorMessage = "ProjectId is required.")]
+        [ForeignKey("Project")]
         public int ProjectId { get; set; }
-        [Required(ErrorMessage = "TechnologyId is required.")]
-        public int TechnologyId { get; set; }
-        public  Project Project { get; set; }
-        public  Technologies Technology { get; set; }
 
-      
+        public Project Project { get; set; }
+
+        [ForeignKey("Technology")]
+        public int TechnologyId { get; set; }
+
+        public Technologies Technology { get; set; }
+
+
     }
 }

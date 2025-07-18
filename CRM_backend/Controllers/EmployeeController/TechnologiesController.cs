@@ -3,7 +3,7 @@ using CRM_backend.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CRM_backend.Controllers
+namespace CRM_backend.Controllers.EmployeeController
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -25,7 +25,7 @@ namespace CRM_backend.Models.Project
         public decimal? Budget { get; set; }
 
         [MaxFileSize(20 * 1024 * 1024)] // 20 MB limit
-        public byte[] Document { get; set; }
+        public string? Document { get; set; }
 
         [Url(ErrorMessage = "Please enter a valid URL")]
         public string AnyLinks { get; set; }

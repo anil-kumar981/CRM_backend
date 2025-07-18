@@ -5,7 +5,7 @@ using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace CRM_backend.Controllers
+namespace CRM_backend.Controllers.EmployeeController
 {
     [Route("api/[controller]")]
     [ApiController]

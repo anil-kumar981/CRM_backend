@@ -21,14 +21,14 @@ namespace CRM_backend.DTO.ProjectDtos
         public decimal? Budget { get; set; }
 
         [MaxFileSize(20 * 1024 * 1024)] // 20 MB limit
-        public IFormFile Document { get; set; }
+        public IFormFile? Document { get; set; }
 
         [Url(ErrorMessage = "Please enter a valid URL")]
         public string AnyLinks { get; set; }
         [Required(ErrorMessage = "Status is required")]
         public ProjectStatus Status { get; set; }
         [Required(ErrorMessage = "At least one technology must be selected.")]
-        public List<int> TechnologyIds { get; set; }
+        public List<int> TechnologyIds { get; set; } = new();
     }
 
 }

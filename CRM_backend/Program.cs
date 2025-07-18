@@ -17,6 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(o=>o.UseSqlServer(builder.Co
 builder.Services.AddScoped (typeof(IRepositories<>),typeof(Repository<>));
 builder.Services.AddScoped<IEmployeeRepo, EmployeeRepo>();
 builder.Services.AddScoped<ITechnologyRepo, TechnologyRepo>();
+builder.Services.AddScoped<IProjectRepo, ProjectRepo>();
 EmployeeMappingConfig.RegisterMappings(); // Register custom mappings
 builder.Services.AddMapster();
 //builder.Services.AddAutoMapper(typeof(EmployeeMapper));
